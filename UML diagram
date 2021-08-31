@@ -1,0 +1,49 @@
+@startuml
+left to right direction
+actor Guest as g
+actor User as u
+package ItFit_calories_app {
+  usecase "Login in app" as UC1
+  usecase "Recover login data" as UC2
+  usecase "Register" as UC3
+  usecase "Look at Demo" as UC4
+  usecase "A page with information about what the calories app is capable of" as UC8
+  usecase "Check the library for the calories of an amout of specific food" as UC9
+  usecase "Add an entry to the library" as UC10
+  usecase UC11 as "Add a name of food for the entry, for example apple
+--
+Choose the unit defining the amout of food, for example grams
+--
+Enter the amout of calories for the food
+--
+Enter the ingredients from the library to calculate the calories, for example Pizza consisting of flour, cheese, tomatoes"
+  usecase UC12 as "Edit an entry in the food library"
+  usecase UC13 as "Edit the name of an entry
+--
+Edit the units of an entry in the library
+--
+Edit the calories amount of an entry in the library
+==
+To edit the entry it must be public"
+  usecase UC14 as "Calculating the amout of calories consumed during the day"
+  usecase UC15 as "Making a list of food consumed from the library
+--
+Summing up the calories consumed during the day
+--
+Registering the date and amout of calories consumed"
+  usecase UC16 as "Registering the weight and BMI each week"
+ }
+g --> UC1
+g --> UC2
+g --> UC3
+g --> UC4
+UC4 --> UC8
+u --> UC9
+u --> UC10
+UC10 --> UC11
+u --> UC12
+UC12 --> UC13
+u --> UC14
+UC14 --> UC15
+u --> UC16
+@enduml

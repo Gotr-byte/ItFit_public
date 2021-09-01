@@ -1,0 +1,168 @@
+@startuml
+left to right direction
+
+package ItFit_calories_app_variables{
+  usecase UC1 as "date
+==
+system time
+--
+day/month/year
+--
+related to:
+--
+calories_day
+--
+weight_week, BMI_week"
+
+  usecase UC2 as "user_name 
+==
+string type
+--
+related to:
+--
+password
+--
+user_email"
+usecase UC3 as "password
+==
+string type
+--
+related to:
+--
+user_name
+--
+user_email"
+
+usecase UC4 as "user_email
+==
+string type
+--
+related to:
+--
+user_name
+--
+password"
+
+usecase UC5 as "food_name
+==
+string type
+--
+related to:
+--
+food_unit
+--
+calories_pu"
+ 
+usecase UC6 as "food_unit
+==
+string type
+--
+related to:
+--
+food_name
+--
+calories_pu"  
+
+usecase UC7 as "calories_pu
+==
+intiger type
+--
+related to:
+--
+food_name
+--
+food_unit"
+
+usecase UC8 as "units_eaten
+==
+absolute float type
+--
+related to:
+--
+calories_pu
+--
+calories_portion" 
+
+usecase UC9 as "calories_portion
+==
+int type
+--
+calories_pu X units_eaten
+--
+related to:
+--
+calories_pu
+--
+units_eaten
+--
+daily_cal" 
+
+usecase UC10 as "daily_cal
+==
+int type
+--
+daily sum of calories_portion
+--
+related to:
+--
+calories_portion
+--
+date
+"
+
+usecase UC11 as "weight_week
+==
+float type
+--
+weight of human
+--
+related to:
+--
+date
+--
+BMI_week
+"
+
+usecase UC12 as "height
+==
+float type
+--
+heigt of human
+--
+related to:
+--
+BMI_week
+"
+
+usecase UC13 as "BMI_week
+==
+float type
+--
+weight_week / (height^2)
+--
+related to:
+--
+height
+--
+weight_week
+--
+date
+"
+  
+ 
+ }
+
+UC2 -- UC3
+UC3 -- UC4
+UC5 -- UC6
+UC6 -- UC7
+UC7 -- UC8
+UC8 -- UC9
+UC9 -- UC10
+UC5 -- UC7
+UC1 -- UC10
+UC1 -- UC11
+UC1 -- UC13
+UC12 -- UC13
+UC11 -- UC13
+@enduml

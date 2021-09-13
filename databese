@@ -1,0 +1,45 @@
+CREATE DATABASE itfit;
+
+CREATE TABLE sser ( 
+	user_id BIGSERIAL NOT NULL PRIMARY KEY,
+	user_name VARCHAR (50) NOT NULL
+);
+
+CREATE TABLE product (
+	product_id INT NOT NULL PRIMARY KEY,
+	product_name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE unit (
+	unit_id INT NOT NULL PRIMARY KEY,
+	name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE calority (
+	calority_id BIGSERIAL NOT NULL PRIMARY KEY,
+	unit_id INT,
+	product_id INT,	
+	CONSTRAINT fk_product
+      		FOREIGN KEY(product_id) 
+  			  REFERENCES product(product_id)
+			    ON DELETE CASCADE,
+	CONSTRAINT fk_unit
+      		FOREIGN KEY(unit_id) 
+  			  REFERENCES unit(unit_id)
+		    	ON DELETE CASCADE
+);
+
+CREATE TABLE portion (
+	portion_id BIGSERIAL NOT NULL PRIMARY KEY,
+	user_id BIGSERIAL,
+	calority_id BIGSERIAL,
+	amount FLOAT,
+	CONSTRAINT fk_user
+      		FOREIGN KEY(user_id) 
+  			  REFERENCES user(user_id)
+			    ON DELETE CASCADE
+	CONSTRAINT fk_calority
+      		FOREIGN KEY(calority_id) 
+  			  REFERENCES user(calority_id)
+		    	ON DELETE CASCADE	
+);

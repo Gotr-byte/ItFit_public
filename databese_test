@@ -1,0 +1,32 @@
+INSERT INTO sser (user_name)
+	VALUES('gorgo');
+
+INSERT INTO sser (user_name)
+	VALUES('crowley');
+
+INSERT INTO sser (user_name)
+	VALUES('Kei');
+
+INSERT INTO unit (unit_id, name)
+	VALUES('szmakels');
+
+INSERT INTO unit (unit_id, name)
+	VALUES('lots');
+
+INSERT INTO product(product_id, product_name)
+	VALUES(1, 'onions');
+
+INSERT INTO product(product_id, product_name)
+	VALUES(21, 'garclic');
+
+INSERT INTO calority (calority_id, unit_id, product_id)
+VALUES (100,1,1);
+
+INSERT INTO portion(calority_id, amount)
+	VALUES(100,0.63);
+
+SELECT * FROM unit;
+SELECT * FROM sser;
+SELECT * FROM product;
+SELECT * FROM calority;
+SELECT * FROM portion;

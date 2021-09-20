@@ -1,0 +1,32 @@
+INSERT INTO account (account_name)
+	VALUES('gorgo');
+
+INSERT INTO account (account_name)
+	VALUES('crowley');
+
+INSERT INTO account (account_name)
+	VALUES('Kei');
+
+INSERT INTO unit (unit_id, name)
+	VALUES(1,'szmakels');
+
+INSERT INTO unit (unit_id, name)
+	VALUES(2,'lots');
+
+INSERT INTO product(product_id, product_name)
+	VALUES(1, 'onions');
+
+INSERT INTO product(product_id, product_name)
+	VALUES(21, 'garclic');
+
+INSERT INTO calority (cal_per_unit, unit_id, product_id)
+VALUES (100,1,1);
+
+INSERT INTO portion(calority_id, amount)
+VALUES(1,0.63);
+
+INSERT INTO portion(account_id, calority_id, amount)
+VALUES (1,1,0.25);
+
+INSERT INTO portion(calority_id, amount)
+VALUES(1,0.63);

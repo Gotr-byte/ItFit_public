@@ -1,0 +1,47 @@
+CREATE DATABASE itfit3;
+
+CREATE TABLE account ( 
+	account_id BIGSERIAL NOT NULL PRIMARY KEY,
+	account_name VARCHAR (50) NOT NULL
+);
+
+CREATE TABLE product (
+	product_id INT NOT NULL PRIMARY KEY,
+	product_name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE unit (
+	unit_id INT NOT NULL PRIMARY KEY,
+	name VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE calority (
+	calority_id BIGSERIAL NOT NULL PRIMARY KEY,
+	unit_id INT,
+	product_id INT,	
+	cal_per_unit INT,
+	CONSTRAINT fk_product
+      		FOREIGN KEY(product_id) 
+  			  REFERENCES product(product_id)
+			    ON DELETE CASCADE,
+	CONSTRAINT fk_unit
+      		FOREIGN KEY(unit_id) 
+  			  REFERENCES unit(unit_id)
+			    ON DELETE CASCADE
+);
+
+CREATE TABLE portion (
+	portion_id BIGSERIAL NOT NULL PRIMARY KEY,
+	account_id BIGSERIAL,
+	calority_id BIGSERIAL,
+	amount FLOAT,
+	consumption_date DATE NOT NULL DEFAULT CURRENT_DATE,
+	CONSTRAINT fk_account
+      		FOREIGN KEY(account_id) 
+  			  REFERENCES account(account_id)
+			    ON DELETE CASCADE,
+	CONSTRAINT fk_calority
+      		FOREIGN KEY(calority_id) 
+  			  REFERENCES calority(calority_id)
+			    ON DELETE CASCADE	
+);

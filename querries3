@@ -1,0 +1,13 @@
+SELECT * FROM unit;
+
+SELECT * FROM account;
+
+SELECT * FROM product;
+
+SELECT * FROM calority;
+
+SELECT * FROM portion;
+
+SELECT amount * cal_per_unit AS portion_eaten, consumption_date
+FROM portion, calority 
+WHERE account_id = 1 AND consumption_date = '2021-09-15';
